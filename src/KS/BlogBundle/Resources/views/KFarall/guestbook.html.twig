@@ -1,0 +1,81 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<div class="guestbook">
+<div class="form-type">
+    <h2>Écrire un message</h2>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="form-button">Envoyer</button>
+    {{ form_end(form) }}
+</div>
+
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    
+        <h3>Posts en attente de validation</h3>
+
+        {% for post in guestbooklist if post.active == 0 %}
+         {#   {% if post.active == 0 %} #}
+
+
+                <section>
+                <div>
+                    <h2>{{ post.username }}</h2>
+                        <div>
+                                <div>
+                                   <p>{{post.content}}</p>
+                                    <button class="more-button"><a href="{{ path('ks_blog_admin_editguestbook', {'id': post.id}) }}">Publier</a></button>
+                                    <button class="more-button"><a href="{{ path('ks_blog_admin_deleteguestbook', {'id': post.id}) }}">Supprimer</a></button>
+                                </div>
+                        </div>
+                </div>
+            </section>
+           {#  {% endif %}  #}        
+        {% endfor %}
+
+        {% set count = 0 %}
+        {% for post in guestbooklist if post.active == 0 %}
+            {% set count = count + 1 %}
+        {% endfor %}
+
+        {% if count == 0 %}
+        <p>Il n'y a aucun message en attente.</p>
+        {% endif %}
+
+        <h3>Messages publiés</h3>
+    {% endif %}
+
+
+
+    {% for post in guestbooklist %}
+            {% if post.active %}
+                <section>
+                <div>
+                    <h2> {{ post.username }}</h2>
+                        <div>
+                                <div>
+                                   <p>{{post.content}}</p>
+                                   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                 <button class="more-button"><a href="{{ path('ks_blog_admin_editguestbook', {'id': post.id}) }}">Masquer</a></button>
+                 <button class="more-button"><a href="{{ path('ks_blog_admin_deleteguestbook', {'id': post.id}) }}">Supprimer</a></button>
+                 {% endif %}
+                                </div>
+                        </div>
+                </div>
+            </section>
+            {% endif %}
+    {% endfor %}
+
+    {% set countActive = 0 %}
+        {% for post in guestbooklist if post.active == 1 %}
+            {% set countActive = countActive + 1 %}
+        {% endfor %}
+
+        {% if countActive == 0 %}
+        <p>Il n'y a encore aucun message dans le livre d'or. Soyez le premier à commenter !!</p>
+        {% endif %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="nouvelles">
+        {% for book in books %}
+            {% if book.active %}
+                <section class="flex-row">
+                    <div class="cover-img">
+                        <img src="{{ asset(book.image.webPath) }}" alt="couverture {{ book.name }}">
+                    </div>
+                        <div class="relative">
+                            <h2>{{ book.name }}</h2>
+                            {% if book.saga.name != 'livre unique' %}
+                                <h3>{{ book.saga.name }} tome {{ book.numero }}</h3>
+                            {% endif %} 
+                            <p>{% set text = book.content |split(' ') %} 
+                                {% if text|length > 50 %} 
+                                    {% for t in text|slice(0, 25) %}
+                                        {{ t }} 
+                                    {% endfor %}
+                                    ...
+                                {% else %}
+                                    {{ text|join(' ') }}
+                                {% endif %}
+                            </p>
+                            <button class="more-button"><a href="{{ path('ks_blog_publication', {'id': book.id}) }}">Lire plus...</a></button>
+                        
+                        </div>
+                </section>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+   
+
+    <div class="partenariats">
+    {% for partenariat in partenariats %}
+
+        <section class="flex-row">
+           <div class="cover-img">
+            <img src="{{ asset(partenariat.image.webPath) }}" alt="portrait {{ partenariat.name }}">
+           </div>
+           <div class="relative">
+                <h2>{{ partenariat.name }}</h2>  
+                <p> {{ partenariat.content }}</p>
+                <div class="socialmedia-fa">
+                    {% if partenariat.socialmedialink is not null %}
+                        <a class="facebook-fa" href="{{ partenariat.socialmedialink }}"></a>
+                    {% endif %}
+                    {% if partenariat.websitelink is not null %}
+                        <a  class="external-fa"href="{{ partenariat.websitelink }}"></a>
+                    {% endif %}
+
+                </div>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                 <button class="more-button"><a href="{{ path('ks_blog_admin_editpartenariat', {'id': partenariat.id}) }}">Editer</a></button>
+                 <button class="more-button"><a href="{{ path('ks_blog_admin_deletepartenariat', {'id': partenariat.id}) }}">Supprimer</a></button>
+                 {% endif %}
+            </div>
+        </section>
+
+    {% endfor %}
+    </div>
+
+
+
+{% endblock %}

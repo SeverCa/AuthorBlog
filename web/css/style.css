@@ -1,0 +1,1427 @@
+
+/* Le site est en responsive, mobile-first. Les spécificités pour tablettes puis pour ordinateurs 
+arrivent plus bas dans le code */ 
+
+/*************************************************************************************************/
+/* ****************************************** POLICES ****************************************** */
+/*************************************************************************************************/
+
+h1, h2, h3, .nouvelles h2>a {
+	color: white;
+	font-family: 'Contrail One', cursive;
+}
+
+p, a, li {
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+a, li a  {
+	text-decoration: none;
+}
+
+/* font awesome *********************/
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('fonts/fontawesome-webfont.eot?v=4.7.0');
+	src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* contact */
+.fa-envelope:before {
+	content: "\f0e0";
+}
+
+/* engrenage */
+.fa-gear:before,
+.fa-cog:before {
+  content: "\f013";
+}
+
+/* engrenageS */
+.fa-gears:before,
+.fa-cogs:before {
+  content: "\f085";
+}
+
+/* poubelle */
+.fa-trash:before {
+	content: "\f1f8";
+}
+
+/* maison */
+.fa-home:before {
+content: "\f015";
+}
+
+/* facebook */
+.fa-facebook-square:before {
+	content: "\f082";
+}
+
+/* twitter */
+.fa-twitter-square:before {
+	content: "\f081";
+}
+
+/* site perso */
+.fa-external-link-square:before {
+	content: "\f14c";
+}
+
+/* signe "+" */
+.fa-plus:before {
+	content: "\f067";
+}
+
+/* dossier zip */
+.fa-folder-open-o:before {
+	content: "\f115";
+}
+
+/*************************************************************************************************/
+/* ************************************* DONNEES GENERALES ************************************* */
+/*************************************************************************************************/
+
+body {
+	background-image: url('../images/background.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	text-align: center;
+}
+
+section, footer {
+	background-color:rgba(21, 67, 96, 0.8);
+}
+
+/*************************************************************************************************/
+/* ****************************************** HEADER ******************************************* */
+/*************************************************************************************************/
+
+.facebook-fa::before {
+	font-family: "FontAwesome";
+	content: "\f082";
+	color: white;
+	display: block;
+	text-align: center;
+	padding: 0;
+	font-size: 2.5rem;
+	transition: color .3s;
+}
+
+.twitter-fa::before {
+	font-family: "FontAwesome";
+	content: "\f081";
+	color: white;
+	display: block;
+	text-align: center;
+	padding: 0;
+	font-size: 2.5rem;
+	transition: color .3s;
+}
+
+#publi-plus, #novel-plus, #press-plus, #actu-plus {
+	display: inline-block;
+	margin-left: 2rem;
+}
+
+#publi-plus::after, #novel-plus::after, #press-plus::after, #actu-plus::after {
+	font-family: "FontAwesome";
+	content: "\f067";
+	color: white;
+	display: inline-block;
+	text-align: center;
+	padding: 0;
+	font-size: 2rem;
+	transition: transform .5s ease-in-out;
+}
+
+.rotate {
+	transform:rotate(45deg);
+	transform-origin: center;
+	transition: transform .5s ease-in-out;
+}
+
+.notrotate {
+	transform:rotate(0deg);
+	transform-origin: center;
+	transition: transform .5s ease-in-out;
+}
+
+/* les classes qui toggle en javascript */
+
+.fold {
+/*	display: none;*/
+	flex-basis: 100%;
+	max-height: 0;
+	margin: 0;
+	padding: 0;
+    opacity: 0;
+	overflow: hidden;
+	text-transform: uppercase;
+	font-size: 0;
+	background-color: transparent;
+	transition: margin .5s ease-in-out, max-height .5s ease-in-out, opacity .3s .1s ease-in-out;
+}
+
+.unfold {
+	/*display: block;*/
+	padding: 0;
+    max-height: 5000px;
+    opacity: 1;
+	visibility: visible;
+	text-transform: uppercase;
+	transition: margin .5s ease-in-out, max-height .5s ease-in-out, opacity .3s .1s ease-in-out;
+
+}
+
+/* //////////////////////////////////////////////////// */
+
+.header {
+	padding: 2rem;
+}
+
+nav ul {
+	font-size: 1.8rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center; 
+}
+
+nav li {
+	display: inline-block;
+	font-size: 2.2rem;
+	
+}
+
+nav li a, .display-mobile, #press-toggle  {
+	display: inline-block;
+	border-bottom: 1px solid #eee;
+	padding: 1.5rem 0 1.5rem 0;
+	width: 100%;
+}
+
+li li {
+	width: 100%;
+}
+
+/* le h2 du header visible uniquement en version mobile */
+.site-title {
+	display: block;
+	font-size: 4.5rem;
+}
+
+/* on cache les liens visibles uniquement sur pc */
+.display-pc {
+	display: none;
+}
+
+/* les ul imbriquées */
+nav li ul {
+	font-size: 2rem;
+	background-color: rgba(21, 67, 96, 0.7);
+	margin: 0;
+	padding: 0;
+}
+
+/* icones réseaux sociaux */
+.socialmedia-fa {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.socialmedia-fa a {
+	width: 5rem;
+	border-bottom: none;
+}
+
+/* couleur différentes pour les li visibles par les admins */
+.pink {
+	background-color: rgba(227, 62, 159, 0.7);
+}
+
+/* on les fait apparaitre au survol */
+nav li:hover ul {
+	display: block;
+}
+
+/* le titre visible pour les ordis */
+
+h1 {
+	display: none;
+}
+
+/*************************************************************************************************/
+/* ****************************************** BOUTONS ****************************************** */
+/*************************************************************************************************/
+
+.form-button {
+	color: white;
+	font-size: 2.5rem;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #154360;
+	border: none;
+	padding: 1rem 2rem;
+	position: relative;
+	top: -1.5rem;
+}
+
+.form-button:hover,  .form-button:active {
+	background-color: #21618C;
+}
+
+.admin .form-button {
+	position: static;
+	margin-top: 4rem;
+}
+
+.relative {
+	position: relative;
+}
+
+.more-button {
+	width: 80%;
+	color: white;
+	font-size: 2.5rem;
+	font-family: 'Open Sans', sans-serif;
+	background-color:rgba(227, 62, 159, 0.7);
+	border: none;
+	padding: 1rem 3rem;
+	position: absolute;
+	bottom: .5rem; right: 1rem;
+}
+
+/* boutons fav-icones */
+.fav-button {
+	background-color: transparent;
+	border: none;
+}
+
+/* edit */
+.gear::before {
+	font-family: "FontAwesome";
+	content: "\f085";
+	color: white;
+	display: flex;
+	flex-flow: column;
+	padding: 1.1rem;
+	font-size: 2rem;
+	transition: color 1s;
+}
+
+/* poubelle */
+.trash::before {
+	font-family: "FontAwesome";
+	content: "\f1f8";
+	color: white;
+	display: flex;
+	flex-flow: column;
+	padding: 1.1rem;
+	font-size: 2rem;
+	transition: color 1s;
+}
+
+/* au survol */
+.gear:hover::before, .trash:hover::before {
+	color: rgba(227, 62, 159, 0.7);
+}
+
+/*************************************************************************************************/
+/* ****************************************** MAIN PAGE **************************************** */
+/*************************************************************************************************/
+
+section {
+	padding: 2rem;
+	margin: 2rem;
+}
+
+section p {
+	font-size: 1.6rem;
+	text-align: justify;
+	line-height: 2rem;
+	margin-top: 2rem;
+}
+
+.img-div img {
+	width: 100%;
+	height: auto;
+}
+
+h2 {
+	font-size: 5rem;
+	padding-bottom: 3rem;
+}
+
+/*************************************************************************************************/
+/* **************************************** FORMULAIRES **************************************** */
+/*************************************************************************************************/
+
+.form-type {
+	background-color: rgba(227, 62, 159, 0.6);
+	margin: 0 0 3rem 0;
+	padding: 2rem;
+}
+
+.addbook .form-type {
+	margin: 0;
+}
+
+.form-type h2 {
+	font-size: 4rem;
+	padding-bottom: 2rem;
+}
+
+.form-type p {
+	font-size: 1.8rem;
+	padding-bottom: 1rem;
+}
+
+.form-type input, .form-type form textarea {
+	width: 100%;
+	padding: 0.5rem;
+	margin: 0.5rem;
+	box-shadow: 3px 2px 2px #5D6D7E;
+	font-size: 1.6rem;
+}
+
+.form-type select {
+	width: 100%;
+	padding: 1rem;
+	margin: 1rem;
+	box-shadow: 3px 2px 2px #5D6D7E;
+	font-size: 1.6rem;
+}
+
+.form-type select option {
+	font-size: 1.6rem;
+}
+
+
+.form-type form textarea {
+	height: 20rem;
+	padding-bottom: 2rem;
+}
+
+.form-type label {
+	display: none;
+}
+
+/* pour afficher les labels des checkbox et des type file */
+.checkbox {
+	display:flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 2rem 2rem;
+	align-items: center;
+	width: 100%;
+	background-color: rgba(227, 62, 159, 0.6);
+}
+
+.checkbox input {
+	width: 2rem;
+	height: 2rem;
+}
+
+.file-type input {
+	width: 23rem;
+	height: 3rem;
+}
+
+.checkbox label {
+	display: block;
+	font-size: 1.6rem;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* pour les type date */
+.actu {
+	padding: 1rem;
+}
+
+/* pour les ImageType::class */
+/* on masque le vilain "FILE" */
+.checkbox #form_image label,
+.checkbox #ks_blogbundle_novels_image label,
+.checkbox #ks_blogbundle_books_image label,
+.checkbox #ks_blogbundle_partenariats_image label {
+	display: none;
+}
+/* pour les ImageType::class */
+/* on change la couleur du bouton + taille + police etc */
+#form_image_file::-webkit-file-upload-button,
+#ks_blogbundle_novels_image_file::-webkit-file-upload-button,
+#ks_blogbundle_books_image_file::-webkit-file-upload-button,
+#ks_blogbundle_partenariats_image_file::-webkit-file-upload-button {
+	background-color: #154360;
+	height: 100%;
+	font-size: 1.6rem;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	width: 15rem;
+	border: none;
+	cursor: pointer;
+}
+/* pour les ImageType::class */
+/* le bouton en mode hover */
+#form_image_file:hover::-webkit-file-upload-button,
+#ks_blogbundle_novels_image_file:hover::-webkit-file-upload-button,
+#ks_blogbundle_books_image_file:hover::-webkit-file-upload-button,
+#ks_blogbundle_partenariats_image_file:hover::-webkit-file-upload-button {
+	background-color: #21618C
+}
+
+/* pour les ImageType::class */
+/* pour le texte a coté qui indique le fichier selectionné */
+#form_image_file,
+#ks_blogbundle_novels_image_file,
+#ks_blogbundle_books_image_file,
+#ks_blogbundle_partenariats_image_file {
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* pour le login */
+.fos .form-type {
+	margin-bottom: 0;
+	padding-top: 2rem;
+}
+
+.fos #no-padding {
+	padding-top: 0;
+}
+
+.fos .form-button {
+	margin-top: 0;
+}
+
+/*************************************************************************************************/
+/* ************** LISTE PUBLICATIONS - LISTE NOUVELLES - PARTENARIATS - ACTU ******************* */
+/*************************************************************************************************/
+
+.small-p {
+	font-size: 3rem;
+	margin-top: 4rem;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.cover-img img {
+	width: 35rem;
+	margin:0 2rem;
+	padding:0;
+}
+
+.resume {
+	display: none;
+}
+
+.nouvelles section,
+ .partenariats section {
+	display: block;
+	margin: 2rem 0;
+	padding: 4rem 2rem;
+}
+
+.nouvelles .cover-img img,
+.partenariats .cover-img img {
+	width: 90%;
+}
+
+.nouvelles h2,
+.partenariats h2 {
+	margin-top: 1.2rem;
+	padding: 0;
+}
+
+.nouvelles h3 {
+	font-size: 2.5rem;
+	text-align: center;
+	line-height: 3.5rem;
+	margin: 2rem 0;	
+}
+
+.nouvelles p,
+.partenariats p {
+	margin: 5rem 0 10rem 0;
+}
+
+.nouvelles .more-button {
+	display: block;
+	position: static;
+	margin: auto;
+}
+
+.partenariats .more-button {
+	display: block;
+	position: static;
+	margin: auto;
+	margin-top: 5rem;
+}
+
+#map {
+	display: none;
+}
+
+/*************************************************************************************************/
+/* ***************************************** GUESTBOOK ***************************************** */
+/*************************************************************************************************/
+
+.guestbook section h2 {
+	font-size: 2.5rem;
+}
+
+.guestbook h3 {
+	font-size: 3.5rem;
+	margin: 4rem 0 2rem 0;
+}
+
+.guestbook .more-button {
+	display: block;
+	position: static;
+	margin: auto;
+	margin-top: 1rem;
+}
+
+.guestbook p {
+	font-size: 1.6rem;
+	text-align: justify;
+	line-height: 2rem;
+	margin: 2rem 1rem;
+}
+
+/*************************************************************************************************/
+/* *************************** CHRONIQUES - INTERVIEWS - KITS PRESSE *************************** */
+/*************************************************************************************************/
+
+.chroniques h2 {
+	padding-bottom: 1rem;	
+	font-size: 2.5rem;
+}
+
+.chroniques .bookname {
+	padding-top: 2.5rem;
+	padding-bottom: 1rem;
+}
+
+.chroniques h3 a {
+	font-size: 1.8rem;
+	text-decoration: underline;
+	margin-top: 1rem;
+	transition: color 1s;
+}
+
+.chroniques h3 a:hover {
+	color: rgba(227, 62, 159, 0.6);
+}
+
+.separateur {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 2rem;
+}
+
+.chroniques .flex-row {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0;
+}
+
+.chroniques .flex-row h3 {
+	margin-bottom: 2rem;
+}
+
+.dl-flex {
+	display: flex;
+	flex-direction: column;
+}
+
+.download {
+	padding: 2rem;
+}
+
+.download a {
+	transition: color 1s;
+}
+
+/* icone zip */
+.download::before {
+	font-family: "FontAwesome";
+	content: "\f115";
+	color: white;
+	display: flex;
+	flex-flow: column;
+	padding: 1.1rem;
+	font-size: 2rem;
+	transition: color 1s;
+}
+
+/* au survol */
+.download:hover::before, .download:hover a {
+	color: rgba(227, 62, 159, 0.7);
+}
+
+/*************************************************************************************************/
+/* *************************************** ADMIN PANEL ***************************************** */
+/*************************************************************************************************/
+
+.adminpage button {
+	width: 100%;
+}
+
+.adminpage table {
+	width: 100%;
+}
+
+.adminpage td {
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.6rem;
+	border-bottom: 1px solid #eee;
+	padding-top: 1.2rem;
+}
+
+.adminpage th {
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 2.5rem;
+	padding: 1rem;
+	width: 100%;
+	background-color: rgba(227, 62, 159, 0.6);
+}
+	
+/*************************************************************************************************/
+/* ****************************************** FOOTER ******************************************* */
+/*************************************************************************************************/
+
+footer {
+	padding: 2rem;
+	background-color: #154360;
+	position: absolute;
+	bottom: 0;
+}
+
+.vide {
+	height: 40rem;
+}
+
+footer p {
+	color: white;
+	text-align: center;
+	font-size: 1.4rem;
+	padding-top: 1.5rem;
+	font-family: 'Open Sans', sans-serif;
+}
+
+footer small p {
+	font-size: 1.2rem;
+	font-family: 'Open Sans', sans-serif;
+	padding: 2rem;
+}
+
+footer span {
+	color: rgb(227, 62, 159);
+	font-family: 'Contrail One', cursive;
+	font-size: 1.6rem;
+}
+
+/*************************************************************************************************/
+/*************************************************************************************************/
+/* ************************************ POUR LES TABLETTES ************************************* */
+/*************************************************************************************************/
+/*************************************************************************************************/
+
+@media screen and (min-width: 600px) {
+	
+/*************************************************************************************************/
+/* ****************************************** HEADER ******************************************* */
+/*************************************************************************************************/ 
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+nav {
+	width: 100%;
+}
+
+/* le h2 du header visible uniquement en version mobile et tablettes */
+.site-title {
+	width: 50%;
+}
+
+/* le menu hamburger */
+#menu-toggle {
+	width: 50%;
+}
+
+/*************************************************************************************************/
+/* ****************************************** BOUTONS ****************************************** */
+/*************************************************************************************************/
+
+.form-button {
+	font-size: 3rem;
+	position: relative;
+	top: -2rem;
+}
+
+/*************************************************************************************************/
+/* ****************************************** MAIN PAGE **************************************** */
+/*************************************************************************************************/
+
+section {
+	display: block;
+}
+
+.img-div {
+	width: 40%;
+	float: left;
+	margin: 0 3rem 0 0;
+}
+
+section p {
+	font-size: 2rem;
+	text-align: justify;
+	line-height: 3.5rem;
+	margin-top: 5rem;
+}
+
+/*************************************************************************************************/
+/* **************************************** FORMULAIRES **************************************** */
+/*************************************************************************************************/
+
+.form-type {
+	padding: 5rem;
+}
+
+.form-type p {
+	font-size: 2.2rem;
+}
+
+#index-form {
+	margin-top: 10rem;
+}
+
+.form-type input, .form-type form textarea {
+	padding: 1rem;
+	margin: 1rem;
+	font-size: 2rem;
+	width: 75%;
+}
+
+.form-type select {
+	padding: 1rem;
+	margin: 1rem;
+	font-size: 2rem;
+	width: 75%;
+}
+
+.form-type select option {
+	font-size: 2rem;
+}
+
+.form-type form textarea {
+	height: 20rem;
+	padding-bottom: 2rem;
+}
+
+.checkbox label {
+	font-size: 2.5rem;
+}
+
+.checkbox input {
+	width: 3rem;
+	height: 3rem;
+}
+
+.file-type input {
+	width: 34rem;
+	height: 4.5rem;
+}
+
+/* pour les type date */
+.actu {
+	padding: 1rem 13rem;
+}
+
+/* pour les ImageType::class */
+/* on change la couleur du bouton + taille + police etc */
+#form_image_file::-webkit-file-upload-button,
+#ks_blogbundle_novels_image_file::-webkit-file-upload-button,
+#ks_blogbundle_books_image_file::-webkit-file-upload-button,
+#ks_blogbundle_partenariats_image_file::-webkit-file-upload-button {
+	font-size: 2rem;
+	width: 20rem;
+}
+
+/*************************************************************************************************/
+/* ************** LISTE PUBLICATIONS - LISTE NOUVELLES - PARTENARIATS - ACTU ******************* */
+/*************************************************************************************************/
+
+.external-fa::before {
+	font-family: "FontAwesome";
+	content: "\f14c";
+	color: white;
+	display: block;
+	text-align: center;
+	padding: 0;
+	font-size: 2.5rem;
+	transition: color .3s;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cover-img {
+	margin-right: 2rem;
+	max-width: 30%;
+}
+
+.nouvelles section,
+ .partenariats section {
+	display: flex;
+	margin: 2rem 2rem;
+	padding: 4rem 4rem;
+}
+
+.nouvelles .cover-img img,
+.partenariats .cover-img img {
+	margin:0;
+	padding:0;
+}
+
+.relative {
+	position: static;
+}
+
+.nouvelles p,
+.partenariats p {
+	margin: 5rem 0 2rem 0;
+}
+
+#publ .flex-row {
+	display: block;
+}
+
+#publ .nouvelles section {
+	display: block;
+}
+#publ .cover-img img {
+	float: left;
+	width: 30rem;
+	margin-right: 3rem;
+}
+
+#nvl .flex-row {
+	flex-direction: column;
+}
+
+#nvl .cover-img {
+	margin: 0 0 3rem 0;
+	max-width: 30rem;
+}
+
+#nvl .cover-img img {
+	width: 30rem;
+}
+
+#map {
+	display: block;
+	margin-top: 6rem;
+}
+
+/*************************************************************************************************/
+/* ***************************************** GUESTBOOK ***************************************** */
+/*************************************************************************************************/
+
+.guestbook section h2 {
+	font-size: 3.5rem;
+}
+
+.guestbook h3 {
+	font-size: 4.5rem;
+	margin: 6rem 0 4rem 0;
+}
+
+.guestbook p {
+	font-size: 2rem;
+	line-height: 2.4rem;
+}
+
+/*************************************************************************************************/
+/* *************************** CHRONIQUES - INTERVIEWS - KITS PRESSE *************************** */
+/*************************************************************************************************/
+
+.chroniques h2 {
+	font-size: 3.5rem;
+}
+
+.chroniques .bookname {
+	padding-top: 3.5rem;
+}
+
+.chroniques h3 a {
+	font-size: 2.5rem;
+}
+
+.chroniques .flex-row {
+	margin: 3rem 0;
+}
+
+.chroniques .fav-button::before {
+	font-size: 3rem;
+}
+
+/*************************************************************************************************/
+/* *************************************** ADMIN PANEL ***************************************** */
+/*************************************************************************************************/
+
+.adminpage td {
+	font-size: 2.2rem;
+}
+
+.adminpage th {
+	font-size: 3rem;
+}
+
+}   /* fin mediaQuery pour les tablettes */
+
+/*************************************************************************************************/
+/*************************************************************************************************/
+/* ************************************** POUR LES ORDIS *************************************** */
+/*************************************************************************************************/
+/*************************************************************************************************/
+
+@media screen and (min-width: 1024px) {
+
+/*************************************************************************************************/
+/* ****************************************** HEADER ******************************************* */
+/*************************************************************************************************/
+
+/* on change les titres "admin" et "accueil" pourdes icones FontAwesome*/
+
+/* espace admin */
+#admin-fa::before {
+	font-family: "FontAwesome";
+	content: "\f013";
+	color: white;
+	display: block;
+	text-align: center;
+	padding: 0;
+	font-size: 2rem;
+	transition: color .3s;
+}
+
+/* home */
+#home-fa::before {
+	font-family: "FontAwesome";
+	content: "\f015";
+	color: white;
+	display: block;
+	text-align: center;
+	padding: 0;
+	font-size: 2rem;
+	transition: color .3s;
+}
+
+/* on redimentionne les <li> avec les icones FontAwesome pour gagner de la place */
+.resize-pc {
+	width: 4rem;
+}
+
+nav li:last-of-type {
+	border-bottom: none;
+}
+
+/*////////////////////////////////////////////*/
+.display-mobile, .site-title, #press-plus, #actu-plus {
+	display: none;
+}
+
+.display-pc {
+	display: block;
+}
+
+.header {
+	height: 30vh;
+	display: block; /* anunlation du display flex pour tablettes */
+}
+
+nav li a, #press-toggle  {
+	display: inline-block;
+	border-bottom: none;
+	padding: 0;
+	width: auto;
+	transition: color .3s;
+}
+
+nav {
+	display: block;
+	margin: auto;
+	max-width: 140rem;
+}
+
+nav ul {
+	font-size: 1.6rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+nav li {
+	width: 12.5%;
+	transition: color .3s;
+} 
+
+li li {
+	display: block;
+	border-bottom: 1px solid #ffffff;
+	padding: 1rem;
+	font-size: 1.6rem;
+	text-align: center;
+	width: 100%;
+}
+
+/* on cache les ul imbriquées */
+nav li ul {
+	display: none;
+	background-color: #21618C;
+	font-size: 2rem;
+	margin-top: 1rem;
+}
+
+/* HOVER du menu */
+
+/* on les fait apparaitre au survol */
+nav li:hover ul {
+	display: block;
+}
+
+/* changement de couleur au survol */
+li:hover, li a:hover, #admin-fa:hover::before, #home-fa:hover::before, .facebook-fa:hover::before, .twitter-fa:hover::before, .external-fa:hover::before {
+	color: rgba(227, 62, 159, 0.7);
+}
+
+/* pas de changement de couleur lors du hover sur les sous-menus */
+li li a:hover {
+	color: white;
+}
+
+/*************************************************************************************************/
+/* ****************************************** MAIN PAGE **************************************** */
+/*************************************************************************************************/ 
+
+h1 {
+	margin-top: 18vh;
+	margin-bottom: calc(50vh - 6rem);
+	display: block;
+	font-size : 6rem;
+}
+
+section {
+	display: block;
+	padding: 2rem 20% 2rem 20%;
+	margin: 0;
+	overflow: auto;
+}
+
+.img-div {
+	width: 20rem;
+	float: left;
+	margin: 0 3rem 0 0;
+}
+
+section p {
+	font-size: 1.6rem;
+	line-height: 3rem;
+	margin:0 0 3rem 0;
+}
+
+/*************************************************************************************************/
+/* ****************************************** BOUTONS ****************************************** */
+/*************************************************************************************************/
+
+.form-button {
+	display: block;
+	margin: auto;
+	font-size: 2.5rem;
+	padding: 1rem 2rem;
+	position: relative;
+	top: -1.5rem;
+}
+
+.more-button {
+	width: 20rem;
+	padding: 0.5rem 2rem;
+	font-size: 2rem;
+	position: static;
+
+}
+
+/*************************************************************************************************/
+/* **************************************** FORMULAIRES **************************************** */
+/*************************************************************************************************/
+
+.form-type {
+	margin: 0 25% 5rem 25%;
+}
+
+.addbook .form-type {
+	margin: 0 25%;
+}
+
+.checkbox {
+	margin: 0 25% 0 25%;
+	padding: 1rem 5rem;
+	width: auto;
+}
+
+/* pour les type date */
+.actu {
+	padding: 1rem  11rem;
+}
+
+#index-form {
+	margin-top: 20rem;
+}
+
+.form-type input, .form-type form textarea {
+	padding: 0.5rem;
+	margin: 0.5rem;
+	font-size: 1.8rem;
+}
+
+.form-type select {
+	padding: 0.5rem;
+	margin: 1rem;
+	font-size: 1.8rem;
+	width: 75%;
+}
+
+.form-type select option {
+	font-size: 1.8rem;
+}
+
+.form-type form textarea {
+	height: 20rem;
+	padding-bottom: 2rem;
+}
+
+.checkbox input {
+	width: 2rem;
+	height: 2rem;
+}
+
+.file-type input {
+	width: auto;
+	height: 3rem;
+}
+
+/* pour les ImageType::class */
+/* on change la couleur du bouton + taille + police etc */
+#form_image_file::-webkit-file-upload-button,
+#ks_blogbundle_novels_image_file::-webkit-file-upload-button,
+#ks_blogbundle_books_image_file::-webkit-file-upload-button,
+#ks_blogbundle_partenariats_image_file::-webkit-file-upload-button {
+	font-size: 2rem;
+	width: 20rem;
+}
+
+/* pour le login */
+
+.fos .form-type {
+	margin-bottom: 0;
+	padding-top: 8rem;
+}
+
+.fos #no-padding {
+	padding-top: 2rem;
+}
+
+.fos .form-button {
+	margin-top: 0;
+}
+
+/*************************************************************************************************/
+/* ************** LISTE PUBLICATIONS - LISTE NOUVELLES - PARTENARIATS - ACTU ******************* */
+/*************************************************************************************************/
+
+.cover-img {
+	margin-right: 2rem;
+	max-width: 20%;
+}
+
+.nouvelles section,
+ .partenariats section {
+	display: flex;
+	margin: 4rem 0;
+	padding: 4rem 20%;
+	align-items: flex-start;
+}
+
+.nouvelles .cover-img img,
+.partenariats .cover-img img {
+	margin:0;
+	padding:0;
+}
+
+.relative {
+	position: static;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	align-items: left;
+	padding: 0;
+	flex-grow: 1;
+}
+
+.nouvelles h2 {
+	font-size: 3.5rem;
+	margin: 0 0 2rem 0;
+	text-align: left;
+}
+
+.nouvelles .center-title {
+	text-align: center;
+	padding-top: 4rem;
+}
+
+.nouvelles h3 {
+	font-size: 2rem;
+	margin: 1rem 0 2rem 0;
+	text-align: left;
+}
+
+.nouvelles p,
+.partenariats p {
+	margin: 2rem 0 2rem 0;
+}
+
+#nvl .flex-row {
+	display: block;
+}
+
+#nvl .relative {
+	display: block;
+}
+
+#nvl .cover-img {
+	margin: 0 3rem 0 0;
+	max-width: 30rem;
+	float: left;
+}
+
+#nvl .cover-img img {
+	width: 30rem;
+}
+
+.partenariats .more-button {
+	margin-top: 2rem;
+}
+
+/*************************************************************************************************/
+/* ***************************************** GUESTBOOK ***************************************** */
+/*************************************************************************************************/
+
+.guestbook section {
+	margin: 3rem 20% 3rem 20%;
+	padding: 3rem 10%;
+}
+
+.guestbook p {
+	font-size: 1.8rem;
+	line-height: 2.2rem;
+}
+
+/*************************************************************************************************/
+/* *************************** CHRONIQUES - INTERVIEWS - KITS PRESSE *************************** */
+/*************************************************************************************************/
+
+.chroniques h2 {
+	padding-bottom: 1rem;	
+	font-size: 2rem;
+}
+
+.chroniques .bookname {
+	padding-top: 2rem;
+	padding-bottom: 1rem;
+}
+
+.chroniques h3 a {
+	font-size: 1.8rem;
+	margin-top: 1rem;
+	transition: color .3s;
+}
+
+.separateur {
+	margin-bottom: 1rem;
+}
+
+.chroniques .flex-row {
+	display: block;
+}
+
+.chroniques .fav-button::before {
+	font-size: 2rem;
+	transition: color .3s;
+}
+
+.dl-flex {
+	flex-direction: row;
+}
+
+/*************************************************************************************************/
+/* *************************************** ADMIN PANEL ***************************************** */
+/*************************************************************************************************/
+
+.adminpage h2 {
+	margin-bottom: 8rem;
+	width: 100%;
+}
+
+.adminpage section {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.adminpage div {
+	width: 46%;
+	margin-bottom: 5rem;
+}
+
+.adminpage td {
+	font-size: 1.6rem;
+}
+
+.adminpage th {
+	font-size: 1.8rem;
+}	
+
+/*************************************************************************************************/
+/* ****************************************** FOOTER ******************************************* */
+/*************************************************************************************************/
+
+.vide {
+	height: 20rem;
+}
+
+} /* fin mediaQuery pour les ordis */

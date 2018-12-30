@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+<div class="nouvelles">
+    <h2 class="center-title">Évènements à venir</h2>
+    {% for actu in actus %}
+        {% if date("now"|date('Y/m/d')) < date(actu.end|date('Y/m/d')) %} 
+        <section class="flex-row">
+            <div class="cover-img">
+                <img src="{{ asset(actu.image.webPath) }}" alt="affiche {{ actu.name }}">
+            </div>
+
+        <div class="relative">
+        <h2><a href="{{ path('ks_blog_actuvue', {'id': actu.id}) }}">{{ actu.name }}</a></h2>
+        <h3>{{ actu.aside }}</h3>
+        <p>A {{ actu.city|upper }} du {{ actu.debut.date|date("d/m/Y") }} au {{ actu.end.date|date("d/m/Y") }}.</p>
+        </div>
+        </section>
+       {% endif %} 
+    {% endfor %}
+
+    <h2 class="center-title">Évènements passés</h2>
+    <div class="nouvelles">
+        {% for actu in actus %}
+        {% if date("now"|date('Y/m/d')) > date(actu.end|date('Y/m/d')) %} 
+        <section class="flex-row">
+            <div class="cover-img">
+                <img src="{{ asset(actu.image.webPath) }}" alt="affiche {{ actu.name }}">
+            </div>
+
+        <div class="relative">
+        <h2><a href="{{ path('ks_blog_actuvue', {'id': actu.id}) }}">{{ actu.name }}</a></h2>
+        <h3>{{ actu.aside }}</h3>
+        <p>A {{ actu.city|upper }} du {{ actu.debut.date|date("d/m/Y") }} au {{ actu.end.date|date("d/m/Y") }}.</p>
+        </div>
+        </section>
+       {% endif %} 
+    {% endfor %}
+</div>
+{% endblock %}

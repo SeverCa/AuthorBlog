@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+   <div class="addbook">
+      <div class="form-type admin">
+      {% if editMode %}
+            <h2>Modifier une  interview</h2>
+      {% else %}
+            <h2>Ajouter une  interview</h2>
+      {% endif %}
+         {{ form_start(form) }}
+         {{ form_widget(form) }}
+         <button type="submit" class="form-button">Enregistrer</button>
+         {{ form_end(form) }}
+      </div>   
+   </div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+<div class="addbook">
+
+   <div class="form-type admin">
+    {% if edit is defined %} 
+        <h2>Modifier une nouvelle</h2>
+        {% else %}
+        <h2>Etape 2: ajouter une nouvelle</h2>
+        {% endif %}
+    {{ form_start(form) }}
+    {{ form_widget(form.name) }}
+    {{ form_widget(form.content) }}
+    {{ form_widget(form.aside) }}
+    </div>
+    <div class="checkbox file-type">
+        {{ form_label(form.image, 'Couverture') }}
+        {{ form_widget(form.image) }}
+    </div>
+    <div class="form-type admin">
+    {{ form_widget(form.amazonLink) }}
+    {{ form_widget(form.pandaLink) }}
+    <button type="submit" class="form-button">Enregistrer</button>
+    {{ form_end(form) }}
+   </div>
+</div>
+   
+{% endblock %}

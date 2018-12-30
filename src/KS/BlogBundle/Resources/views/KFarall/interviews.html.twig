@@ -1,0 +1,26 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<div class="chroniques">
+  
+  <section>
+  {% for interview in interviews %}
+
+        
+        <div class="flex-row">
+        <h3><a href="{{ interview.url }}">{{ interview.aside }}</a></h3>
+        <div class="flex-row">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                 <a href="{{ path('ks_blog_admin_editinterview', {'id': interview.id}) }}"><button class="fav-button gear"></button></a>
+                 <a href="{{ path('ks_blog_admin_deleteinterview', {'id': interview.id}) }}"><button class="fav-button trash"></button></a>
+                 {% endif %}
+        </div>
+        </div>
+       
+
+  {% endfor %}
+  </section>
+</div>
+
+{% endblock %}

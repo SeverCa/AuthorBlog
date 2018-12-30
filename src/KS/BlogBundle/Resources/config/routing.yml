@@ -1,0 +1,269 @@
+# ACCUEIL #
+ks_blog_homepage:
+    path:     /
+    defaults: { _controller: KSBlogBundle:KFarall:index }
+
+# NAVBAR #
+ks_blog_navbar:
+  path:     /
+  defaults: { _controller: KSBlogBundle:KFarall:navbar }
+
+# FORM CONTACT #
+ks_blog_contact:
+    path:     /contact
+    defaults: { _controller: KSBlogBundle:KFarall:contact }
+
+# ACTUALITE #
+ks_blog_actu:
+  path:     /actu
+  defaults: { _controller: KSBlogBundle:KFarall:actu }
+
+# ACTUALITE DETAIL VUE #
+ks_blog_actuvue:
+  path:     /actu/{id}
+  defaults: { _controller: KSBlogBundle:KFarall:actuvue }
+  requirements:
+    id: '\d+'
+
+# GUESTBOOK #
+ks_blog_guestbook:
+  path:     /guestbook
+  defaults: { _controller: KSBlogBundle:KFarall:guestbook }
+
+# GUESTBOOK VALIDATION COMMENTAIRE #
+ks_blog_valid:
+    path:     /validation/{key}/{id}
+    defaults: { _controller: KSBlogBundle:KFarall:validation }
+
+# PUBLICATIONS LISTE #
+ks_blog_listePublications:
+  path:     /listePublications
+  defaults: { _controller: KSBlogBundle:KFarall:listePublications }
+
+# PUBLICATIONS LISTE PAR CATEGORIE #
+ks_blog_publicationsCategory:
+  path:     /{category}/publicationsCategory
+  defaults: { _controller: KSBlogBundle:KFarall:publicationscategory }
+  requirements:
+    category: '\d+'
+
+# PUBLICATION #
+ks_blog_publication:
+  path:     /publication/{id}
+  defaults: { _controller: KSBlogBundle:KFarall:publication }
+  requirements:
+    id: '\d+'
+
+# NOUVELLES LISTE PAR CATEGORIE #
+ks_blog_nouvellesCategory:
+  path:     /{category}/nouvellesCategory
+  defaults: { _controller: KSBlogBundle:KFarall:nouvellescategory }
+  requirements:
+    category: '\d+'
+
+# NOUVELLES LISTE #
+ks_blog_listeNouvelles:
+  path:     /listeNouvelles
+  defaults: { _controller: KSBlogBundle:KFarall:listeNouvelles }
+
+# NOUVELLE #
+ks_blog_nouvelle:
+  path:     /nouvelle/{id}
+  defaults: { _controller: KSBlogBundle:KFarall:nouvelle }
+  requirements:
+    id: '\d+'
+
+# PARTENARIATS #
+ks_blog_partenariat:
+  path:     /partenariat
+  defaults: { _controller: KSBlogBundle:KFarall:partenariat }
+
+# CHRONIQUES #
+ks_blog_chroniques:
+  path:     /chroniques
+  defaults: { _controller: KSBlogBundle:KFarall:chroniques }
+
+# FORM EDITER CHRONIQUE #
+ks_blog_admin_editchronique:
+  path:     /admin/{id}/editchronique
+  defaults: { _controller: KSBlogBundle:KFarall:editchronique }
+  requirements:
+    id: '\d+'
+
+# INTERVIEWS #
+ks_blog_interviews:
+  path:     /interviews
+  defaults: { _controller: KSBlogBundle:KFarall:interviews }
+
+# KITS PRESSE #
+ks_blog_kitspresse:
+  path:     /kitspresse
+  defaults: { _controller: KSBlogBundle:KFarall:kitspresse }
+
+# REDIRECTIONS REDIRECTIONS REDIRECTIONS REDIRECTIONS REDIRECTIONS REDIRECTIONS REDIRECTIONS REDIRECTIONS #
+
+ks_blog_admin_redirectnewnovel:
+  path:     /admin/redirectNewNovel
+  defaults: { _controller: KSBlogBundle:KFarall:redirectNewNovel }
+
+ks_blog_admin_redirectnewbook:
+  path:     /admin/redirectNewBook
+  defaults: { _controller: KSBlogBundle:KFarall:redirectNewBook }
+
+# ADMIN  ADMIN  ADMIN  ADMIN  ADMIN  ADMIN  ADMIN  ADMIN  ADMIN  ADMIN  ADMIN  ADMIN  ADMIN  ADMIN  ADMIN #
+
+# HOMEPAGE #
+ks_blog_admin_homepage:
+  path:     /admin/
+  defaults: { _controller: KSBlogBundle:KFarall:admin }
+
+#  FORM ACTUALITE #
+ks_blog_addactu:
+  path:     /admin/addactu
+  defaults: { _controller: KSBlogBundle:KFarall:addactu }
+
+# FORM AJOUTER CATEGORIE SEULE #
+ks_blog_admin_newcategory:
+  path:     /admin/newcategory
+  defaults: { _controller: KSBlogBundle:KFarall:newcategory }
+
+# FORM EDITER CATEGORIE #
+ks_blog_admin_editcategory:
+  path:     /admin/{id}/editcategory
+  defaults: { _controller: KSBlogBundle:KFarall:newcategory }
+  requirements:
+    id: '\d+'
+
+# FORM AJOUTER SAGA SEULE #
+ks_blog_admin_newsaga:
+  path:     /admin/newsaga
+  defaults: { _controller: KSBlogBundle:KFarall:newsaga }
+
+# FORM EDITER SAGA #
+ks_blog_admin_editsaga:
+  path:     /admin/{id}/editsaga
+  defaults: { _controller: KSBlogBundle:KFarall:newsaga }
+  requirements:
+    id: '\d+'
+
+# FORM AJOUTER CATEGORIE POUR UN LIVRE #
+ks_blog_admin_addcategory:
+  path:     /admin/addcategory
+  defaults: { _controller: KSBlogBundle:KFarall:addcategory }
+
+# FORM AJOUTER SERIE #
+ks_blog_admin_addsaga:
+  path:     /admin/addsaga
+  defaults: { _controller: KSBlogBundle:KFarall:addsaga }
+
+# FORM PUBLIER NOUVELLE #
+ks_blog_admin_addnovel:
+  path:     /admin/addnovel
+  defaults: { _controller: KSBlogBundle:KFarall:addnovel }
+
+# FORM EDITER NOUVELLE #
+ks_blog_admin_editnovel:
+  path:     /admin/{id}/editnovel
+  defaults: { _controller: KSBlogBundle:KFarall:editnovel }
+  requirements:
+    id: '\d+'
+
+# FORM AJOUTER LIVRE #
+ks_blog_admin_addbook:
+  path:     /admin/addbook
+  defaults: { _controller: KSBlogBundle:KFarall:addbook }
+
+# FORM EDITER LIVRE #
+ks_blog_admin_editbook:
+  path:     /admin/{id}/editbook
+  defaults: { _controller: KSBlogBundle:KFarall:editbook }
+  requirements:
+    id: '\d+'
+
+# TRAITEMENT LIVRE DANS DATABASE #
+ks_blog_admin_addbook:
+  path:     /admin/addbooktraitement
+  defaults: { _controller: KSBlogBundle:KFarall:addbooktraitement }
+
+# FORM AJOUTER CHRONIQUE PAGE 1 SELECTION SERIE BOOK ou NOUVELLE #
+ks_blog_admin_addchronique:
+  path:     /admin/addchronique
+  defaults: { _controller: KSBlogBundle:KFarall:addchronique }
+
+# FORM AJOUTER CHRONIQUE PAGE 2 AJOUT du CONTENU #
+ks_blog_admin_addchroniquecontent:
+  path:     /admin/addchroniquecontent
+  defaults: { _controller: KSBlogBundle:KFarall:addchroniquecontent }
+
+# FORM AJOUTER PARTENARIAT #
+ks_blog_admin_addpartenariat:
+  path:     /admin/addpartenariat
+  defaults: { _controller: KSBlogBundle:KFarall:addpartenariat }
+
+# FORM EDITER PARTENARIAT #
+ks_blog_admin_editpartenariat:
+  path:     /admin/{id}/editpartenariat
+  defaults: { _controller: KSBlogBundle:KFarall:addpartenariat }
+  requirements:
+    id: '\d+'
+
+# FORM AJOUTER INTERVIEW #
+ks_blog_admin_addinterview:
+  path:     /admin/addinterview
+  defaults: { _controller: KSBlogBundle:KFarall:addinterview }
+
+# FORM EDITER INTERVIEW #
+ks_blog_admin_editinterview:
+  path:     /admin/{id}/editinterview
+  defaults: { _controller: KSBlogBundle:KFarall:addinterview }
+  requirements:
+    id: '\d+'
+
+#  EDITER GUESTBOOK #
+ks_blog_admin_editguestbook:
+  path:     /admin/{id}/editguestbook
+  defaults: { _controller: KSBlogBundle:KFarall:editguestbook }
+  requirements:
+    id: '\d+'
+
+#  SUPPRIMER LIVRE #
+ks_blog_admin_deletebook:
+  path:     /admin/{id}/deletebook
+  defaults: { _controller: KSBlogBundle:KFarall:deletebook }
+  requirements:
+    id: '\d+'
+
+#  SUPPRIMER NOUVELLE #
+ks_blog_admin_deletenovel:
+  path:     /admin/{id}/deletenovel
+  defaults: { _controller: KSBlogBundle:KFarall:deletenovel }
+  requirements:
+    id: '\d+'
+
+#  SUPPRIMER CHRONIQUE #
+ks_blog_admin_deletechronique:
+  path:     /admin/{id}/deletechronique
+  defaults: { _controller: KSBlogBundle:KFarall:deletechronique }
+  requirements:
+    id: '\d+'
+
+#  SUPPRIMER INTERVIEW #
+ks_blog_admin_deleteinterview:
+  path:     /admin/{id}/deleteinterview
+  defaults: { _controller: KSBlogBundle:KFarall:deleteinterview }
+  requirements:
+    id: '\d+'
+
+#  SUPPRIMER PARTENARIATS #
+ks_blog_admin_deletepartenariat:
+  path:     /admin/{id}/deletepartenariat
+  defaults: { _controller: KSBlogBundle:KFarall:deletepartenariat }
+  requirements:
+    id: '\d+'
+
+#  SUPPRIMER GUESTBOOK #
+ks_blog_admin_deleteguestbook:
+  path:     /admin/{id}/deleteguestbook
+  defaults: { _controller: KSBlogBundle:KFarall:deleteguestbook }
+  requirements:
+    id: '\d+'

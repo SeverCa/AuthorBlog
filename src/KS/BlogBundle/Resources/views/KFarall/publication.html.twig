@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div  id="publ">
+    <div class="nouvelles">
+        <section class="flex-row">              
+            <div class="cover-img">
+                <img src="{{ asset(book.image.webPath) }}" alt="couverture {{ book.name }}">
+            </div>
+            <div class="relative">
+                <h2>{{ book.name }}</h2>
+                <h3>{{ book.nbpages }} pages</h3>
+                <p >{{ book.content }}</p>
+                <button class="more-button"><a href="{{ book.amazonLink }}">Acheter {{ book.name }}</a></button>
+            </div>         
+        </section>
+    </div>
+</div>
+{% endblock %}

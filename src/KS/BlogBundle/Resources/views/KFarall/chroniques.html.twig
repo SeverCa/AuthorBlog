@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+
+
+    <div class="chroniques">
+    {% for saga in sagasArray %}
+        <section>
+            <div>
+                <div class="separateur"><h2>{{ saga.sagaChronique.name|upper }}</h2></div>
+
+            {# on liste déja les chroniques sur les séries dans leur ensemble #}
+            {% for chronique in saga.sagaChronique.chroniques if chronique.book is null %}
+           
+            <div class="flex-row">
+                <h3><a href="{{ chronique.url }}">{{ chronique. name }}</a></h3>
+                <div>
+                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('ks_blog_admin_editchronique', {'id': chronique.id}) }}"><button class="fav-button gear"></button></a>
+                    <a href="{{ path('ks_blog_admin_deletechronique', {'id': chronique.id}) }}"><button class="fav-button trash"></button></a>
+                 {% endif %}
+                </div>
+            </div>
+            
+            {% endfor %}
+
+            {# puis on liste les chroniques à propos des livres de chaque série #}
+            {% set title = "" %}
+            {% set oldTitle = "" %}
+            {# chaque titre de livre doit n'apparaitre qu'une seule fois #}
+            {% for book in saga.books %}
+                {% set title = book.book.name %}
+                    {% if title != oldTitle %}
+                        <div class="separateur"><h2 class="bookname">{{ book.book.name }}</h2></div>
+                    {% endif %}
+                {% set oldTitle = book.book.name %}
+
+       
+                    <div class="flex-row">
+                        <h3><a href="{{ book.url }}">{{ book.name }}</a></h3>
+                    <div>
+                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="{{ path('ks_blog_admin_editchronique', {'id': book.id}) }}"><button class="fav-button gear"></button></a>
+                        <a href="{{ path('ks_blog_admin_deletechronique', {'id': book.id}) }}"><button class="fav-button trash"></button></a>
+                    </div>
+                    </div>
+                
+                 {% endif %}
+                 
+                    
+            {% endfor %}
+            </div>
+        </section>
+    {% endfor %}
+
+
+    {# pour les nouvelles #}
+    {% for novel in novelsArray %}
+
+    <section>
+        <div>
+        <div class="separateur"><h2>NOUVELLES</h2></div>
+            <div class="separateur"><h2 class="bookname">{{ novel.novel.name }}</h2></div>
+
+            {% for chronique in novel.novelChronique %}
+
+            
+                <div class="flex-row">
+                <h3><a href="{{ chronique.url }}">{{ chronique. name }}</a></h3>
+                <div>
+                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('ks_blog_admin_editchronique', {'id': chronique.id}) }}"><button class="fav-button gear"></button></a>
+                    <a href="{{ path('ks_blog_admin_deletechronique', {'id': chronique.id}) }}"><button class="fav-button trash"></button></a>
+                 {% endif %}
+                </div>
+            </div>
+         
+                
+
+            {% endfor %}
+        </div>
+    </section>
+
+    {% endfor %}
+    </div>
+
+{% endblock %}

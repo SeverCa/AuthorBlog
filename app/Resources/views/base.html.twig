@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Khalysta Farall</title>
+    <link rel="icon" type="image/jpg" href="{{ asset('images/kflogo.jpg') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Contrail+One|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" media="all" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+
+{{ render(controller('KSBlogBundle:KFarall:navbar')) }}
+
+
+<main>
+{% block body %}
+{% endblock %}
+</main>
+
+<div class="vide"></div>
+<footer>
+    <p><span>Khalysta Farall</span> : Un ecrivain bien connu dans cette galaxie (et dans les autres aussi).</p>
+    <small><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolorem, quisquam necessitatibus ad, asperiores recusandae veritatis fuga odio animi omnis dicta. Illo ratione pariatur, atque, sint accusantium voluptatem ipsam provident.<br />
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolorem, quisquam necessitatibus ad, asperiores recusandae veritatis fuga odio animi omnis dicta. Illo ratione pariatur, atque, sint accusantium voluptatem ipsam provident. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut perferendis iure illum, est sequi nemo! Illum, cum, laborum? Impedit numquam, suscipit odio voluptate nobis consequatur earum ullam quisquam ipsum molestias.</p></small>
+
+</footer>
+
+
+</body>
+
+<script src="{{ asset('js/script.js') }}"></script>
+</html>

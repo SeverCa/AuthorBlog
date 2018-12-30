@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <section>
+        <h2>Kits de presse</h2>   
+      
+        <p>En plus des liens vers les différentes interviews qui m’ont été accordées, vous trouverez ici des kits média à télécharger. 
+        Chacun comprend une photo de présentation, deux couvertures du roman choisi, un synopsis ainsi que différentes biographies en fonction de ce que vous cherchez.</p>
+
+
+        <div class="dl-flex">
+            <div class="download"><a href="{{ asset('downloads/Service_presse_Khalysta_Farall.rar') }}">Khalysta Farall.rar</a></div>
+            <div class="download"><a href="{{ asset('downloads/Service_presse_Six_Les_moissonneurs_stellaires_I.rar') }}">Six - Les Moissonneurs Stellaires I.rar</a></div>
+            <div class="download"><a href="{{ asset('downloads/Service_presse_Mirage_Les_moissoneurs_stellaires_II.rar') }}">Mirage - Les Moissonneurs Stellaires II.rar</a></div>
+            <div class="download"><a href="{{ asset('downloads/Service_presse_Protocole_zéro_Les_moissonneurs_stellaires_III.rar') }}">Protocole Zéro - Les Moissonneurs Stellaires III.rar</a></div>
+            <div class="download"><a href="{{ asset('downloads/Service_presse_Le_vaisseau_du_Cristal.rar') }}">Le Vaisseau du Cristal.rar</a></div>
+        </div>
+  
+
+    </section>
+{% endblock %}

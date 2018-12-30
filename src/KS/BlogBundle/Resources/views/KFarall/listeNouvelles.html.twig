@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="nouvelles">
+        {% for novel in novels %}
+                <section class="flex-row">
+                        <div class="cover-img">
+                            <img src="{{ asset(novel.image.webPath) }}" alt="couverture {{ novel.name }}">
+                        </div>
+                        <div class="relative">
+                            <h2>{{ novel.name }}</h2>
+                            <p>{{ novel.aside }}</p>
+                            <button  class="more-button"><a href="{{ path('ks_blog_nouvelle', { id: novel.id }) }}">Lire la nouvelle</a></button>
+                        </div>
+                </section>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+

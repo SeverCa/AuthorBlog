@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  
+<h2>Etape 2 : sélectionner la série</h2>
+
+<div class="form-type admin">
+<p>Séries existantes</p>
+    {{ form_start(form2) }}
+    {{ form_widget(form2) }}
+    <button type="submit" class="form-button">Sélectionner</button>
+    {{ form_end(form2) }}
+ </div>   
+
+ <div class="form-type admin">
+ <p>Créer une nouvelle série</p>
+    {{ form_start(form1) }}
+    {{ form_widget(form1) }}
+    <button type="submit" class="form-button">Enregistrer</button>
+    {{ form_end(form1) }}
+</div> 
+{% endblock %}

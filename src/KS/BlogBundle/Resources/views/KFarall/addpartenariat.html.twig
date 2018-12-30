@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+      <div class="addbook">
+
+            <div class="form-type admin">
+      
+                  {% if editMode %}
+                        <h2>Editer un partenariat</h2>
+                  {% else %}
+                        <h2>Ajouter un partenariat</h2>
+                  {% endif %}
+
+                  {{ form_start(form) }}
+                  {{ form_widget(form.name) }}
+                  {{ form_widget(form.content) }}
+                  {{ form_widget(form.websitelink) }}
+                  {{ form_widget(form.socialmedialink) }}
+                  {{ form_widget(form.email) }}
+      </div>
+      <div class="checkbox file-type">     
+            {{ form_label(form.image, 'Portrait') }}
+            {{ form_widget(form.image) }}
+      </div>
+      <div class="checkbox">
+            {{ form_label(form.active, 'Visible par les visiteurs') }}
+            {{ form_widget(form.active) }}
+      </div>
+      <div class="form-type admin">      
+            <button type="submit" class="form-button">Enregistrer</button>
+            {{ form_end(form) }}
+      </div>
+      </div>
+
+{% endblock %}

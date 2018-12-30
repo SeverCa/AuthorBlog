@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<div id="nvl">
+    <div class="nouvelles">
+        <section class="flex-row">              
+            <div class="cover-img">
+                <img src="{{ asset(novel.image.webPath) }}" alt="couverture {{ novel.name }}">
+            </div>
+            <div class="relative">
+                <h2>{{ novel.name }}</h2>
+                <p>{{ novel.content|striptags('<p><br /><strong><em><u><s>')|raw }}</p>
+            </div>         
+        </section>
+    </div>
+</div>
+
+{% endblock %}

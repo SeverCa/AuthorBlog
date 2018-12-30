@@ -1,0 +1,112 @@
+
+{% block navbar %}
+
+
+<div class="header">
+    <h2 class="site-title"><a href="{{ path('ks_blog_homepage') }}">Khalysta Farall</a></h2>
+    <h2 id="menu-toggle">≡ Menu</h2>
+<nav>
+    <ul  id="nav-toggle" class="fold">
+         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <li class="resize-pc"><a href="{{ path('ks_blog_admin_homepage') }}" class="display-mobile">Admin</a><a href="{{ path('ks_blog_admin_homepage') }}" class="display-pc" id="admin-fa"></a>
+        </li>
+         {% endif %}
+        <li class="resize-pc"><a href="{{ path('ks_blog_homepage') }}" class="display-mobile">Accueil</a><a href="{{ path('ks_blog_homepage') }}" class="display-pc" id="home-fa"></a></li>
+        <li><a href="{{ path('ks_blog_listePublications') }}" class="display-pc">Publications</a><span class="display-mobile" id="publications-toggle">Publications<span id="publi-plus" class="notrotate"></span></span>
+            <div class="fold" id="publications-menu">
+            <ul>
+                 {% for cat in category %}
+                    {% set nb = 0 %}
+                    {% for book in cat.books %}
+                        {% set nb = nb +1 %}
+                    {% endfor %}
+                    {% if nb > 0 %}
+                        <li>
+                            <a href="{{ path('ks_blog_publicationsCategory', {'category': cat.id}) }}">{{ cat.name }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li class="pink">
+                        <a href="{{ path('ks_blog_admin_redirectnewbook') }}">add livre</a>
+                    </li>
+                    <li class="pink">
+                        <a href="{{ path('ks_blog_admin_newcategory') }}">add catégorie</a>
+                    </li>
+                    <li class="pink">
+                        <a href="{{ path('ks_blog_admin_newsaga') }}">add série</a>
+                    </li>
+                {% endif %}
+            </ul>
+            </div>
+            </li> 
+        <li><a href="{{ path('ks_blog_listeNouvelles') }}" class="display-pc">Nouvelles</a><span class="display-mobile" id="novels-toggle">Nouvelles<span id="novel-plus" class="notrotate"></span></span>
+            <div  class="fold" id="novels-menu">
+            <ul>
+                {% for cat in category %}
+                    {% set nb = 0 %}
+                        {% for novel in cat.novels %}
+                            {% set nb = nb +1 %}
+                        {% endfor %}
+                        {% if nb > 0 %}
+                            <li>
+                                <a href="{{ path('ks_blog_nouvellesCategory', {'category': cat.id}) }}">{{ cat.name }}</a>
+                            </li>
+                        {% endif %}
+                {% endfor %}
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li class="pink">
+                        <a href="{{ path('ks_blog_admin_redirectnewnovel') }}">add nouvelle</a>
+                    </li>
+                {% endif %}
+            </ul>
+            </div>
+            </li>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="{{ path('ks_blog_actu') }}" class="display-pc">Actualité</a><span class="display-mobile" id="actu-toggle">Actualité<span id="actu-plus" class="notrotate"></span></span>
+                    <div class="fold" id="actu-menu">
+                    <ul>
+                        <li><a href="{{ path('ks_blog_actu') }}">Actualité</a></li>
+                        <li class="pink"><a href="{{ path('ks_blog_addactu') }}">Add actualité</a></li>
+                    </ul>
+                    </div>
+                </li>
+            {% else  %}
+                    <li><a href="{{ path('ks_blog_actu') }}">Actualité</a></li>
+            {% endif %}
+        <li><a href="{{ path('ks_blog_guestbook') }}">Livre d'or</a></li>
+        <li><a href="http://onironautekf.blogspot.com/">L'Onironaute</a></li>
+        <li><span id="press-toggle">Presse<span id="press-plus" class="notrotate"></span></span>
+        <div  class="fold" id="press-menu">
+        <ul>
+            <li><a href="{{ path('ks_blog_partenariat') }}">Partenariats</a></li>
+            <li><a href="{{ path('ks_blog_interviews') }}">Interviews</a></li>
+            <li><a href="{{ path('ks_blog_chroniques') }}">Chroniques</a></li>
+            <li><a href="{{ path('ks_blog_kitspresse') }}">Kits presse</a></li>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li class="pink">
+                    <a href="{{ path('ks_blog_admin_addinterview') }}">add interview</a>
+                </li>
+                <li class="pink">
+                    <a href="{{ path('ks_blog_admin_addchronique') }}">add chronique</a>
+                </li>
+                <li class="pink">
+                <a href="{{ path('ks_blog_admin_addpartenariat') }}">add partenariat</a>
+                </li>
+            {% endif %}
+        </ul>
+        </div>
+        </li>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li>
+                <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+            </li>
+        {% endif %}
+        <li>
+        <div class="socialmedia-fa"><a href="https://www.facebook.com/KhalystaFarall/" class="facebook-fa"></a><a href="https://twitter.com/khalystaf" class="twitter-fa"></a></div>
+        </li>
+    </ul>
+</nav>
+
+</div>
+{% endblock %}

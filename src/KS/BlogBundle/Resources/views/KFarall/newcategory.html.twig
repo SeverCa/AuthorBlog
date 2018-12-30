@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+
+    <div class="form-type admin">
+        
+        {% if editMode %}
+            <h2>{{ title }}</h2>
+        {% else %}
+            <h2>Ajouter une catégorie</h2>
+        {% endif %}
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+                <button type="submit" class="form-button">Enregistrer</button>
+            {{ form_end(form) }}
+    </div>
+   
+{% endblock %}

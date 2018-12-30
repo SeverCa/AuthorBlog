@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  
+
+<div class="addbook">
+
+    <div class="form-type admin">
+
+        {% if edit is defined %} 
+        <h2>Modifier un livre</h2>
+        {% else %}
+        <h2>Etape 3: ajouter un livre</h2>
+        {% endif %}
+        {{ form_start(form) }}
+        {{ form_widget(form.name) }}
+        {{ form_widget(form.content) }}
+        {{ form_widget(form.numero) }}
+        {{ form_widget(form.nbpages) }}
+        {{ form_widget(form.internetPrice) }}
+        {{ form_widget(form.physicalPrice) }}
+        {{ form_widget(form.amazonLink) }}
+        {{ form_widget(form.amazonApercu) }}
+        {{ form_widget(form.isbn) }}
+    </div>
+        <div class="checkbox file-type">
+            {{ form_label(form.image, 'Couverture') }}
+            {{ form_widget(form.image) }}
+        </div>
+        <div class="checkbox">
+            {{ form_label(form.active, 'Visible par les visiteurs') }}
+            {{ form_widget(form.active) }}
+        </div>
+    <div class="form-type admin">
+            {% if edit is defined %} 
+        {{ form_widget(form.category) }}
+        {{ form_widget(form.saga) }}
+        {% endif %}
+        <button type="submit" class="form-button">Enregistrer</button>
+        {{ form_end(form) }}
+    </div> 
+</div>
+{% endblock %}

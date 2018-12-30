@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<div  id="publ">
+    <div class="nouvelles">
+        <section class="flex-row">              
+            <div class="cover-img">
+                <img src="{{ asset(actu.image.webPath) }}" alt="affiche {{ actu.name }}">
+            </div>
+            <div class="relative">
+                <h2>{{ actu.name }}</h2>
+                <h3>{{ actu.aside }}</h3>
+
+                <p>{{ actu.adresse }}<br />
+                {{ actu.postalcode }} {{ actu.city|upper }}<br />
+                Du {{ actu.debut.date|date("d/m/Y") }} au {{ actu.end.date|date("d/m/Y") }}.</p>
+                <p>{{ actu.content }}</p>
+
+                <div id="map">{{ actu.map|raw }}</div>
+            </div>         
+        </section>
+    </div>
+</div>
+{% endblock %}
+

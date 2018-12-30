@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+<div class="addbook">
+
+    <div class="form-type admin">
+
+        {% if edit is defined %} 
+        <h2>Modifier une actualité</h2>
+        {% else %}
+        <h2>Ajouter une actualité</h2>
+        {% endif %}
+        {{ form_start(form) }}
+        {{ form_widget(form.name) }}
+        {{ form_widget(form.aside) }}
+        {{ form_widget(form.content) }}
+    </div>
+        <div class="checkbox file-type actu">
+        {{ form_label(form.debut, 'Date du début') }}
+        {{ form_widget(form.debut) }}
+    </div>
+    <div class="checkbox file-type actu">   
+        {{ form_label(form.end, 'Date de fin') }}
+        {{ form_widget(form.end) }}
+    </div>
+    <div class="form-type admin">
+        {{ form_widget(form.tarif) }}
+        {{ form_widget(form.adresse) }}
+        {{ form_widget(form.postalcode) }}
+        {{ form_widget(form.city) }}
+        {{ form_widget(form.website) }}
+        {{ form_widget(form.map) }} 
+    </div>
+        <div class="checkbox file-type">
+            {{ form_label(form.image, 'Affiche') }}
+            {{ form_widget(form.image) }}
+    </div>
+    <div class="form-type admin">
+        <button type="submit" class="form-button">Enregistrer</button>
+        {{ form_end(form) }}
+    </div> 
+</div>
+{% endblock %}

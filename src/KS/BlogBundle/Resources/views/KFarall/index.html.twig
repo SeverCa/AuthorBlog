@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Khalysta Farall</h1>
+
+    <section>
+            <div class="img-div"><img src="{{ asset('images/kf.jpg') }}" alt="portrait de l'auteur"></div>
+
+            <p>Je ne suis pas écrivaine, ni autrice, scribouillarde ou même artiste.</p>
+                <p>Je suis onironaute, le rêve est mon terrain de jeux.</p>
+                <p>Petite déjà, j’aurais voulu naître dans un autre monde, à un autre temps. J’ai passé tellement de temps à rêver que pour moi la réalité n’a plus aucun sens. Alors j’invente des mondes, modèle des univers, me crée des nouvelles vies.
+                Formats courts ou longs, vous trouverez ici les carnets de mes voyages intérieurs.</p>
+                <p>Que vous soyez à la recherche du frisson de l’aventure ou de la réflexion sur l’être, amateurs de dystopies ou grands idéalistes, bienvenue dans mes réalités.</p>
+    </section>
+
+
+        <div class="form-type" id="index-form">
+            <h2>Contact</h2>
+            <form action="{{ path('ks_blog_contact') }}" method="POST">
+                <input type="email" name="email" placeholder="Votre e-mail" required>
+                <input type="text" name="title" placeholder ="Titre" required>
+                <textarea placeholder="Message" name="content" required></textarea>
+                <button type="submit" class="form-button">Envoyer</button>
+            </form>
+        </div>
+    
+    
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<div class="form-type admin">
+    <h2> Chroniquer une série entière</h2>
+    {{ form_start(form1) }}
+    {{ form_widget(form1) }}
+    <button type="submit" class="form-button">Ajouter</button>
+    {{ form_end(form1) }}
+</div>
+<div class="form-type admin">
+    <h2> Chroniquer un livre en particulier</h2>
+    {{ form_start(form2) }}
+    {{ form_widget(form2) }}
+    <button type="submit" class="form-button">Ajouter</button>
+    {{ form_end(form2) }}
+</div>
+<div class="form-type admin">
+    <h2> Chroniquer une nouvelle</h2>
+    {{ form_start(form3) }}
+    {{ form_widget(form3) }}
+    <button type="submit" class="form-button">Ajouter</button>
+    {{ form_end(form3) }}
+</div>
+{% endblock %}

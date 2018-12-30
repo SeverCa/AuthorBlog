@@ -1,0 +1,18 @@
+services:
+#    ks_blog.example:
+#        class: KS\BlogBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    ks_blog.mailing.message_notificator:
+        class: KS\BlogBundle\Mailing\MessageNotificator
+        arguments:
+            - "@mailer"
+
+    ks_blog.mailing.message_listener:
+        class: KS\BlogBundle\Mailing\MessageListener
+        arguments:
+            - "@ks_blog.mailing.message_notificator"
+            - "@doctrine.orm.entity_manager"
+        tags:
+            - { name: kernel.event_listener, event: ks_blog_guestbook_message, method: processAdvert }
+            - { name: kernel.event_listener, event: ks_blog_guestbook_contact, method: processContact }

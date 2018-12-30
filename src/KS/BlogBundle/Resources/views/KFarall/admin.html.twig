@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+<div class="adminpage">
+
+  <h2>Panneau d'administration</h2>
+
+
+    <section>
+      <div>
+        <table>
+          <tr>
+            <th colspan="2">Catégories</th>
+          </tr>
+        {% for cat in category %}
+          <tr>
+            <td>{{ cat.name }}</td>
+            <td><a href="{{ path('ks_blog_admin_editcategory', {'id': cat.id}) }}"><button class="fav-button gear"></button></a></td> 
+          </tr>
+        {% endfor %}
+        </table>
+      </div>
+    
+
+
+  
+    <div>
+        <table>
+          <tr>
+            <th colspan="2">Séries</th>
+          </tr>
+        {% for saga in sagas %}
+          <tr>
+            <td>{{ saga.name }}</td>
+            <td><a href="{{ path('ks_blog_admin_editsaga', {'id': saga.id}) }}"><button class="fav-button gear"></button></a></td> 
+          </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+
+ 
+    <div>
+      <table>
+        <tr>
+          <th colspan="3">Publications</th> 
+        </tr>
+      {% for book in books %}
+        <tr>
+          <td>{{ book.name }}</td>
+          <td><a href="{{ path('ks_blog_admin_editbook', {'id': book.id}) }}"><button class="fav-button gear"></button></a></td>
+          <td><a href="{{ path('ks_blog_admin_deletebook', {'id': book.id}) }}"><button class="fav-button trash"></button></a></td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+ 
+
+  
+    <div>
+      <table>
+        <tr>
+          <th colspan="3">Nouvelles</th>
+        </tr>
+      {% for novel in novels %}
+        <tr>
+          <td>{{ novel.name }}</td>
+          <td><a href="{{ path('ks_blog_admin_editnovel', {'id': novel.id}) }}"><button class="fav-button gear"></button></a></td>
+          <td><a href="{{ path('ks_blog_admin_deletenovel', {'id': novel.id}) }}"><button class="fav-button trash"></button></a></td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+  </section>
+</div>
+
+
+{% endblock %}
