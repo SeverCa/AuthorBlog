@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 use KS\BlogBundle\Event\BlogEvent;
@@ -303,14 +304,16 @@ class KFarallController extends Controller
                 'placeholder' => 'Nombre de pages'
             )
         ))
-        ->add('internetPrice', IntegerType::class, array(
+        ->add('internetPrice', NumberType::class, array(
             'attr' => array(
-                'placeholder' => 'Prix e-book'
+                'placeholder' => 'Prix e-book',
+                'scale' => 2
             )
         ))
-        ->add('physicalPrice', IntegerType::class, array(
+        ->add('physicalPrice', NumberType::class, array(
             'attr' => array(
-                'placeholder' => 'Prix broché'
+                'placeholder' => 'Prix broché',
+                'scale' => 2
             )
         ))
         ->add('amazonLink', TextType::class, array(
@@ -460,7 +463,7 @@ class KFarallController extends Controller
             $em->flush();
             $session->clear();
 
-            return $this->redirectToRoute('ks_blog_admin_homepage');
+            return $this->redirectToRoute('ks_blog_nouvelle', ['id' => $novel->getId()]);
         }
         return $this->render('@KSBlog/KFarall/addnovel.html.twig', array(
             'form' => $form->createView()));
@@ -537,7 +540,7 @@ class KFarallController extends Controller
             $em->persist($actu);
             $em->flush();
 
-            return $this->redirectToRoute('ks_blog_actu');
+            return $this->redirectToRoute('ks_blog_actuvue', ['id' => $actu->getId()]);
         }
 
         return $this->render('@KSBlog/KFarall/addactu.html.twig', ['form' => $form->createView()]);

@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class ActuType extends AbstractType
@@ -34,9 +35,10 @@ class ActuType extends AbstractType
         ->add('end', DateType::class, array(
             'widget' => 'single_text'
         ))
-        ->add('tarif', IntegerType::class, array(
+        ->add('tarif', NumberType::class, array(
             'attr' => array(
-                'placeholder' => 'Tarif'
+                'placeholder' => 'Tarif',
+                'scale' => 2
             )
         ))
         ->add('city', TextType::class, array(

@@ -450,7 +450,8 @@ h2 {
 .checkbox #form_image label,
 .checkbox #ks_blogbundle_novels_image label,
 .checkbox #ks_blogbundle_books_image label,
-.checkbox #ks_blogbundle_partenariats_image label {
+.checkbox #ks_blogbundle_partenariats_image label,
+.checkbox #ks_blogbundle_actu_image label {
 	display: none;
 }
 /* pour les ImageType::class */
@@ -458,7 +459,8 @@ h2 {
 #form_image_file::-webkit-file-upload-button,
 #ks_blogbundle_novels_image_file::-webkit-file-upload-button,
 #ks_blogbundle_books_image_file::-webkit-file-upload-button,
-#ks_blogbundle_partenariats_image_file::-webkit-file-upload-button {
+#ks_blogbundle_partenariats_image_file::-webkit-file-upload-button,
+#ks_blogbundle_actu_image_file::-webkit-file-upload-button {
 	background-color: #154360;
 	height: 100%;
 	font-size: 1.6rem;
@@ -473,7 +475,8 @@ h2 {
 #form_image_file:hover::-webkit-file-upload-button,
 #ks_blogbundle_novels_image_file:hover::-webkit-file-upload-button,
 #ks_blogbundle_books_image_file:hover::-webkit-file-upload-button,
-#ks_blogbundle_partenariats_image_file:hover::-webkit-file-upload-button {
+#ks_blogbundle_partenariats_image_file:hover::-webkit-file-upload-button,
+#ks_blogbundle_actu_image_file:hover::-webkit-file-upload-button {
 	background-color: #21618C
 }
 
@@ -482,7 +485,8 @@ h2 {
 #form_image_file,
 #ks_blogbundle_novels_image_file,
 #ks_blogbundle_books_image_file,
-#ks_blogbundle_partenariats_image_file {
+#ks_blogbundle_partenariats_image_file,
+#ks_blogbundle_actu_image_file {
 	color: white;
 	font-family: 'Open Sans', sans-serif;
 }
