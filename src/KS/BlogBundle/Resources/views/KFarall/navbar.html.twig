@@ -28,13 +28,13 @@
                 {% endfor %}
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <li class="pink">
-                        <a href="{{ path('ks_blog_admin_redirectnewbook') }}">add livre</a>
+                        <a href="{{ path('ks_blog_admin_redirectnewbook') }}">+ livre</a>
                     </li>
                     <li class="pink">
-                        <a href="{{ path('ks_blog_admin_newcategory') }}">add catégorie</a>
+                        <a href="{{ path('ks_blog_admin_newcategory') }}">+ catégorie</a>
                     </li>
                     <li class="pink">
-                        <a href="{{ path('ks_blog_admin_newsaga') }}">add série</a>
+                        <a href="{{ path('ks_blog_admin_newsaga') }}">+ série</a>
                     </li>
                 {% endif %}
             </ul>
@@ -56,7 +56,7 @@
                 {% endfor %}
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <li class="pink">
-                        <a href="{{ path('ks_blog_admin_redirectnewnovel') }}">add nouvelle</a>
+                        <a href="{{ path('ks_blog_admin_redirectnewnovel') }}">+ nouvelle</a>
                     </li>
                 {% endif %}
             </ul>
@@ -67,7 +67,7 @@
                     <div class="fold" id="actu-menu">
                     <ul>
                         <li><a href="{{ path('ks_blog_actu') }}">Actualité</a></li>
-                        <li class="pink"><a href="{{ path('ks_blog_addactu') }}">Add actualité</a></li>
+                        <li class="pink"><a href="{{ path('ks_blog_addactu') }}">+ actualité</a></li>
                     </ul>
                     </div>
                 </li>
@@ -85,13 +85,13 @@
             <li><a href="{{ path('ks_blog_kitspresse') }}">Kits presse</a></li>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <li class="pink">
-                    <a href="{{ path('ks_blog_admin_addinterview') }}">add interview</a>
+                    <a href="{{ path('ks_blog_admin_addinterview') }}">+ interview</a>
                 </li>
                 <li class="pink">
-                    <a href="{{ path('ks_blog_admin_addchronique') }}">add chronique</a>
+                    <a href="{{ path('ks_blog_admin_addchronique') }}">+ chronique</a>
                 </li>
                 <li class="pink">
-                <a href="{{ path('ks_blog_admin_addpartenariat') }}">add partenariat</a>
+                <a href="{{ path('ks_blog_admin_addpartenariat') }}">+ partenariat</a>
                 </li>
             {% endif %}
         </ul>
